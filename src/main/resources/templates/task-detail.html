@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Task: ' + ${task.title}">Task Detail</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav>
+    <a href="/" id="nav-home">Home</a>
+    <a href="/tasks" id="nav-tasks">Tasks</a>
+    <a href="/tasks/new" id="nav-new">New Task</a>
+</nav>
+
+<main>
+    <h1 id="page-title" th:text="${task.title}">Task Title</h1>
+
+    <div class="detail-box" id="task-detail">
+        <div class="detail-row">
+            <span class="detail-label">Status:</span>
+            <span th:text="${task.completed} ? 'Completed' : 'Pending'"
+                  th:class="${task.completed} ? 'badge badge-done' : 'badge badge-pending'"
+                  id="task-status"></span>
+        </div>
+        <div class="detail-row" th:if="${task.description}">
+            <span class="detail-label">Description:</span>
+            <span th:text="${task.description}" id="task-description"></span>
+        </div>
+        <div class="detail-row">
+            <span class="detail-label">ID:</span>
+            <span th:text="${task.id}" id="task-id"></span>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <form th:action="@{/tasks/{id}/toggle(id=${task.id})}" method="post" style="display:inline">
+            <button type="submit" class="btn" id="toggle-btn"
+                    th:text="${task.completed} ? 'Mark as Pending' : 'Mark as Done'"></button>
+        </form>
+        <form th:action="@{/tasks/{id}/delete(id=${task.id})}" method="post" style="display:inline">
+            <button type="submit" class="btn btn-danger" id="delete-btn">Delete</button>
+        </form>
+        <a href="/tasks" class="btn btn-secondary" id="back-btn">Back to Tasks</a>
+    </div>
+</main>
+</body>
+</html>

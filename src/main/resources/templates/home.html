@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task App</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav>
+    <a href="/" id="nav-home">Home</a>
+    <a href="/tasks" id="nav-tasks">Tasks</a>
+    <a href="/tasks/new" id="nav-new">New Task</a>
+</nav>
+
+<main>
+    <h1 id="page-title">Task Manager</h1>
+    <p>Welcome! Use the navigation above to manage your tasks.</p>
+
+    <div class="stats" id="stats-box">
+        <div class="stat-card" id="stat-total">
+            <span class="stat-number" th:text="${totalTasks}">0</span>
+            <span class="stat-label">Total</span>
+        </div>
+        <div class="stat-card" id="stat-completed">
+            <span class="stat-number" th:text="${completedTasks}">0</span>
+            <span class="stat-label">Completed</span>
+        </div>
+        <div class="stat-card" id="stat-pending">
+            <span class="stat-number" th:text="${pendingTasks}">0</span>
+            <span class="stat-label">Pending</span>
+        </div>
+    </div>
+
+    <a href="/tasks" class="btn" id="view-tasks-btn">View All Tasks</a>
+</main>
+</body>
+</html>
