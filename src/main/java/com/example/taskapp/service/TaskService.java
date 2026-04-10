@@ -21,6 +21,7 @@ public class TaskService {
         tasks.add(new Task("Buy groceries", "Milk, eggs, bread"));
         tasks.add(new Task("Read a book", "Finish the Playwright docs"));
         tasks.add(new Task("Write tests", "Practice Playwright end-to-end tests"));
+        tasks.add(new Task("Review pull request", "Check the team's latest changes"));
     }
 
     public List<Task> findAll() {

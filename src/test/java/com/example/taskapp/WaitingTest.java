@@ -70,7 +70,7 @@ class WaitingTest extends PlaywrightBaseTest {
 
         // assertThat() assertions also auto-wait and retry until the condition
         // is true or the timeout is hit — no flaky sleep() calls needed
-        assertThat(page.locator(".task-item")).hasCount(3);
+        assertThat(page.locator(".task-item")).hasCount(4);
     }
 
     @Test

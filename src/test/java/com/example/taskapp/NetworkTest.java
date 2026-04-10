@@ -1,5 +1,6 @@
 package com.example.taskapp;
 
+import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.Request;
 import com.microsoft.playwright.Route;
 import org.junit.jupiter.api.Test;
@@ -54,8 +55,9 @@ class NetworkTest extends PlaywrightBaseTest {
         // Abort a request to test how your app handles network errors
         page.route("**/api/tasks", Route::abort);
 
-        page.navigate(url("/api/tasks"));
-        // Page will show a network error — useful for testing error states
+        // Aborting the route causes navigate() to throw a PlaywrightException
+        // because the browser receives net::ERR_FAILED instead of a response
+        assertThrows(PlaywrightException.class, () -> page.navigate(url("/api/tasks")));
     }
 
     @Test

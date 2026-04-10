@@ -24,7 +24,10 @@ public class TaskDetailPage {
     }
 
     public TaskDetailPage toggle() {
-        page.click("#toggle-btn");
+        String detailUrl = page.url();          // remember where we are
+        page.click("#toggle-btn");              // redirects to /tasks
+        page.waitForURL("**/tasks");            // wait for the redirect to land
+        page.navigate(detailUrl);              // return to the detail page
         return this;
     }
 

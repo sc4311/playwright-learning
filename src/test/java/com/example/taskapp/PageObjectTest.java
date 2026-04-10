@@ -31,7 +31,7 @@ class PageObjectTest extends PlaywrightBaseTest {
     void threeTasksAreShownByDefault() {
         TasksPage tasks = tasksPage().navigate();
 
-        assertEquals(3, tasks.getTaskCount());
+        assertEquals(4, tasks.getTaskCount());
     }
 
     @Test
@@ -43,7 +43,7 @@ class PageObjectTest extends PlaywrightBaseTest {
                 .submit();
 
         assertTrue(tasks.hasTask("Interview Prep"));
-        assertEquals(4, tasks.getTaskCount());
+        assertEquals(5, tasks.getTaskCount());
     }
 
     @Test

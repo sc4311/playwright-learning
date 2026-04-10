@@ -13,8 +13,8 @@ class TaskPageTest extends PlaywrightBaseTest {
         page.navigate(url("/"));
 
         assertThat(page.locator("#page-title")).hasText("Task Manager");
-        assertThat(page.locator("#stat-total .stat-number")).hasText("3");
-        assertThat(page.locator("#stat-pending .stat-number")).hasText("3");
+        assertThat(page.locator("#stat-total .stat-number")).hasText("4");
+        assertThat(page.locator("#stat-pending .stat-number")).hasText("4");
     }
 
     @Test

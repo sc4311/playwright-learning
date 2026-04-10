@@ -29,8 +29,8 @@ public class TaskApiController {
 
     @GetMapping("/stats")
     public Map<String, Long> getStats() {
-        long total = taskService.findAll().size();
-        long completed = taskService.countCompleted();
+        final long total = taskService.findAll().size();
+        final long completed = taskService.countCompleted();
         return Map.of(
                 "total", total,
                 "completed", completed,

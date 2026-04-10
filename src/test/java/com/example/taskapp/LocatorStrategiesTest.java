@@ -115,7 +115,7 @@ class LocatorStrategiesTest extends PlaywrightBaseTest {
         page.navigate(url("/tasks"));
         // Count how many elements match a locator
         int count = page.locator(".task-item").count();
-        assertEquals(3, count);
+        assertEquals(4, count);
     }
 
     @Test
