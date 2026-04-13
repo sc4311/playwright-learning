@@ -77,9 +77,10 @@ class WaitingTest extends PlaywrightBaseTest {
     void waitForNavigation() {
         page.navigate(url("/tasks"));
 
-        // waitForNavigation wraps an action that triggers page navigation
+        // click nav-home, then waitForURL blocks until the URL matches
         // Ensures you don't proceed before the next page has loaded
-        page.waitForNavigation(() -> page.click("#nav-home"));
+        page.click("#nav-home");
+        page.waitForURL("**/");
 
         assertThat(page).hasURL(url("/"));
     }

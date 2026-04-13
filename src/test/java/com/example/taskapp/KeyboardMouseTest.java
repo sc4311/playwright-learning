@@ -77,10 +77,10 @@ class KeyboardMouseTest extends PlaywrightBaseTest {
     void typeSlowly() {
         page.navigate(url("/tasks/new"));
 
-        // type() simulates real keystrokes one character at a time
+        // pressSequentially() simulates real keystrokes one character at a time
         // (unlike fill() which sets the value directly)
         // Useful for testing autocomplete or real-time validation
-        page.locator("#title").type("Slow typing...");
+        page.locator("#title").pressSequentially("Slow typing...");
 
         assertThat(page.locator("#title")).hasValue("Slow typing...");
     }

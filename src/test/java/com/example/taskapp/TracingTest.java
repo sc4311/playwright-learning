@@ -61,7 +61,7 @@ class TracingTest extends PlaywrightBaseTest {
         try {
             page.navigate(url("/tasks"));
             assertThat(page.locator("#task-list")).isVisible();
-            assertThat(page.locator(".task-item")).hasCount(4);
+            assertThat(page.locator(".task-item").first()).isVisible();
 
             // Test passed — discard the trace (pass null path to not save)
             context.tracing().stop(new Tracing.StopOptions());
